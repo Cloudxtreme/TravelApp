@@ -8,34 +8,35 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Container>
-        <Content style={styles.contentStyle}>
-          <LoginButton
-            onLoginFinished={
-              (error, result) => {
-                if (error) {
-                  alert("login has error: " + result.error);
-                } else if (result.isCancelled) {
-                  alert("login is cancelled.");
-                } else {
-                  AccessToken.getCurrentAccessToken().then(
-                    (data) => {
-                      alert(data.accessToken.toString())
-                    }
-                  )
-                }
+      <Container style={styles.containerStyle}>
+        <LoginButton
+          onLoginFinished={
+            (error, result) => {
+              if (error) {
+                alert("login has error: " + result.error);
+              } else if (result.isCancelled) {
+                alert("login is cancelled.");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    alert(data.accessToken.toString())
+                  }
+                )
               }
             }
-            onLogoutFinished={() => alert("logout.")}/>
-        </Content>
+          }
+          onLogoutFinished={() => alert("logout.")}/>
       </Container>
     );
   }
 }
 
 const styles = {
-  contentStyle: {
-    padding: 30
+  containerStyle: {
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'center',
+    padding: 50
   }
 };
 
