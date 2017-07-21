@@ -2,30 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
 import { Container, Content, Button, Text, Icon } from 'native-base';
-import FBSDK, { LoginButton, AccessToken } from 'react-native-fbsdk';
-  
+import FBSDK, { LoginButton, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+
 class LoginForm extends Component {
+
+  onLogoutFinished() {
+    alert("logout.");
+  }
 
   render() {
     return (
       <Container style={styles.containerStyle}>
-        <LoginButton
-          onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    alert(data.accessToken.toString())
-                  }
-                )
-              }
-            }
-          }
-          onLogoutFinished={() => alert("logout.")}/>
+        <Container style={styles.topStyle}>
+          <Text style={styles.textStyle}>
+             TravelBotDave
+          </Text>
+        </Container>
+        <Container style={styles.bottomStyle}>
+          <LoginButton
+            onLoginFinished={this.props.loginUser}
+            onLogoutFinished={this.onLogoutFinished}/> 
+        </Container>
+        
       </Container>
     );
   }
@@ -34,18 +32,25 @@ class LoginForm extends Component {
 const styles = {
   containerStyle: {
     flex:1,
-    flexDirection:'row',
-    justifyContent:'center',
-    padding: 50
+    backgroundColor: '#1C2833',
+    alignItems: 'center',
+    flexDirection:'column',
+    justifyContent: 'center'
+  },
+  topStyle:{
+    flex:1,
+    justifyContent: 'center', 
+  },
+  bottomStyle:{
+    flex:1
+  },
+  textStyle: {
+    color:'white',
+    fontSize: 50,
+    fontFamily: 'vincHand' 
   }
 };
 
-const mapStateToProps = ({ auth }) => {
-  const { error, loading } = auth;
- 
-  return { error, loading };
-};
-
-export default connect(mapStateToProps, { 
+export default connect(null, { 
   loginUser 
 })(LoginForm);

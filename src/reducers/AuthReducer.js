@@ -5,15 +5,13 @@ import {
 } from '../actions/types'
 
 const INITIAL_STATE = { 
-  user: null,
-  error: '',
-  loading: false
+  user: null
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, loading: true, error: '' };
+      return state;
     case LOGIN_USER_SUCCESS:
       return { ...state, ...INITIAL_STATE, user: action.payload };
     case LOGIN_USER_FAIL:

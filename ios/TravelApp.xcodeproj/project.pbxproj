@@ -53,6 +53,7 @@
 		E04036E7EC684ECDB46E6544 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8695FBD1407D4AC98BD71D04 /* Foundation.ttf */; };
 		F3C8837D45054A7F90040A23 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A33665431CB246D3B3ED190E /* MaterialIcons.ttf */; };
 		1AA1FF043A724E72BB5CB2BE /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA699F746C0418AA5AEDDBA /* libRCTFBSDK.a */; };
+		4DEB56E43478486DB44355EE /* vinchand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5274CE92B58B42FBA94E987D /* vinchand.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +329,7 @@
 		F0FE8AB6364F43479308933B /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		E53E45B225C64C98834650AF /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBSDK.xcodeproj"; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		CCA699F746C0418AA5AEDDBA /* libRCTFBSDK.a */ = {isa = PBXFileReference; name = "libRCTFBSDK.a"; path = "libRCTFBSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5274CE92B58B42FBA94E987D /* vinchand.ttf */ = {isa = PBXFileReference; name = "vinchand.ttf"; path = "../assets/fonts/vinchand.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,6 +607,7 @@
 				F0FE8AB6364F43479308933B /* rubicon-icon-font.ttf */,
 				37FF0687D3B54E7BA1F84D27 /* SimpleLineIcons.ttf */,
 				A4D00C4BB5C544778FEDC46F /* Zocial.ttf */,
+				5274CE92B58B42FBA94E987D /* vinchand.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1026,6 +1029,7 @@
 				35DB9C41AFA14815B82E7778 /* rubicon-icon-font.ttf in Resources */,
 				1B35F68129E243EABA2537A2 /* SimpleLineIcons.ttf in Resources */,
 				D589726BE15C4AC6ACAFE714 /* Zocial.ttf in Resources */,
+				4DEB56E43478486DB44355EE /* vinchand.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
