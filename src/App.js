@@ -4,13 +4,8 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk'
 import reducers from './reducers';
 import Router from './Router';
-import { View } from 'react-native';
 
 class App extends Component {
-  componentWillMount() {
-   
-  }
-
   render() {    
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     
