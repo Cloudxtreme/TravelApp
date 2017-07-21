@@ -5,11 +5,11 @@ import ChatBar from './components/ChatBar';
 
 const RouterComponent = () => {
   return (
-    <Router sceneStyle={{ paddingTop: 65 }}>
+    <Router>
       <Scene key = "auth">
-        <Scene key="login" component={LoginForm} title="Login" />
+        <Scene key="login" component={LoginForm} title="Login" hideNavBar={true} />
       </Scene>
-      
+
       <Scene key = "main">
         <Scene key="chatbar" component={ChatBar} title="Chat" />
       </Scene>
