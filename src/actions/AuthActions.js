@@ -1,15 +1,12 @@
 import { Actions } from 'react-native-router-flux';
 import { 
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL,
-  LOGIN_USER
+  LOGIN_USER_FAIL
 } from './types'
 import FBSDK, { AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
 
 export const loginUser = (error, result) => {
-  return (dispatch) => {
-    dispatch({ type: LOGIN_USER });
-    
+  return (dispatch) => {    
     if (error) {
       alert("login has error: " + result.error);
     } else if (result.isCancelled) {
@@ -24,8 +21,8 @@ export const loginUser = (error, result) => {
               console.log(error);
               alert('Error fetching data: ' + error.toString());
             } else {
-              result = {...result, token: token};
-              console.log(result);
+              user = {...result, token: token};
+              loginUserSuccess(dispatch, user);
               alert('Success fetching data: ' + result.toString());
             }
           }
