@@ -7,7 +7,7 @@ import FBSDK, { LoginButton, AccessToken, GraphRequest, GraphRequestManager } fr
 class LoginForm extends Component {
 
   onLogoutFinished() {
-    alert("logout.");
+    //alert("logout.");
   }
 
   render() {

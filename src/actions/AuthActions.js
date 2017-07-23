@@ -23,7 +23,8 @@ export const loginUser = (error, result) => {
             } else {
               user = {...result, token: token};
               loginUserSuccess(dispatch, user);
-              alert('Success fetching data: ' + result.toString());
+              //console.log(user);
+              //alert('Success fetching data: ' + result.toString());
             }
           }
 
@@ -33,7 +34,7 @@ export const loginUser = (error, result) => {
               accessToken: token,
               parameters: {
                 fields: {
-                  string: 'email, name'
+                  string: 'email, name, picture'
                 }
               }
             },
