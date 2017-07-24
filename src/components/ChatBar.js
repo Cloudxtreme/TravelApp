@@ -7,6 +7,9 @@ import { connectWatson, disconnectWatson, sendChatMessage } from '../actions';
 import CustomView from './CustomView';
 
 class ChatBar extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentWillMount() {
     this.props.connectWatson();
@@ -26,14 +29,16 @@ class ChatBar extends Component {
   
   render() {
     return (
-      <GiftedChat
-        messages={this.props.messages}
-        onSend={(messages) => this.onSend(messages)}
-        renderCustomView={this.renderCustomView}
-        user={{
-          _id: 1
-        }}
-      />
+      <Container style={{marginTop: 65}}>
+        <GiftedChat
+          messages={this.props.messages}
+          onSend={(messages) => this.onSend(messages)}
+          renderCustomView={this.renderCustomView}
+          user={{
+            _id: 1
+          }}
+        />
+      </Container>
     );
   }
 }

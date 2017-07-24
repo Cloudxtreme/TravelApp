@@ -6,20 +6,16 @@ import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left
 import MultiCityView from './MultiCityView';
 
 class CustomView extends Component {
-  renderTopDestinations(destinations) {
-    return destinations.map(destination => 
-       <MultiCityView key={destination.city.city_name} destination={destination}/>
-    );
-  }
-
   render() { 
-    const { type, content } = this.props.currentMessage;
-    if (type) {
+    const { currentMessage, messages } = this.props;
+    if (currentMessage.type) {
       return (
       <View style={{ width: 300 }}>
-        <Content>
-          {this.renderTopDestinations(content.destinations)}
-        </Content>
+        {
+          currentMessage.content.destinations.map(destination => 
+            <MultiCityView key={destination.city.city_name} destination={destination}/>
+          )
+        }
       </View>
       );
     }

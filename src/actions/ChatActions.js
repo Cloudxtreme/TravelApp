@@ -27,7 +27,7 @@ const recieveBotMessage = (message) => ({
 
 const handleMessage = (message, dispatch) => {
   console.log("inside handleMessage");
-  console.log(message);
+  // console.log(message);
   switch(message.type) {
     case 'userJoined':    
       conversationId = message.conversationId;
@@ -80,7 +80,7 @@ const handleMessage = (message, dispatch) => {
 
 const onOpen = dispatch => evt => {
   console.log("Connected to server");
-  console.log("vvvv1 : ", sendUserJoined({ name: 'Sean', id: uuid() }));
+  // console.log("vvvv1 : ", sendUserJoined({ name: 'Sean', id: uuid() }));
   send(sendUserJoined({ name: 'Sean', id: uuid() }));
 }
 
@@ -120,6 +120,7 @@ export const disconnectWatson = () => {
 }
 
 export const sendChatMessage = (messages) => {
+  // console.log("sendChatMessage :", messages);
   return (dispatch) => {
     messages.map((message) => {
       let convertedMsg = {
