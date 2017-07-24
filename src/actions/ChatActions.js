@@ -27,6 +27,7 @@ const recieveBotMessage = (message) => ({
 
 const handleMessage = (message, dispatch) => {
   console.log("inside handleMessage");
+  console.log(message);
   switch(message.type) {
     case 'userJoined':    
       conversationId = message.conversationId;
@@ -48,6 +49,21 @@ const handleMessage = (message, dispatch) => {
       var convertedMsg = {
         _id: message.messageId,
         text: message.content,
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'Dave',
+          avatar: 'https://facebook.github.io/react/img/logo_og.png'
+        }
+      }
+      dispatch(recieveBotMessage(convertedMsg));
+      break;
+    case 'multipleCitySuggestion':
+      if (message.userId !== 'Dave') break; // don't accept broadcasting message 
+      var convertedMsg = {
+        _id: message.messageId,
+        type: message.type,
+        content: message.content,
         createdAt: new Date(),
         user: {
           _id: 2,
