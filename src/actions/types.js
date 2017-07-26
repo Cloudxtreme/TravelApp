@@ -13,3 +13,5 @@ export const DISCONNECTED = 'DISCONNECTED'
 export const SEND_CHAT_MESSAGE = 'textMessage';
 export const SEND_USER_JOINED = 'userJoined';
 export const USER_TYPING = 'userTyping';
+export const NEW_CURRENT_LOCATION = 'location';
+

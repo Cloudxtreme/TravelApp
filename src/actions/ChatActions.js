@@ -4,7 +4,8 @@ import {
   USER_JOINED,
   SEND_USER_JOINED,
   RECIEVE_BOT_MESSAGE,
-  SEND_CHAT_MESSAGE
+  SEND_CHAT_MESSAGE,
+  NEW_CURRENT_LOCATION
 } from './types'
 
 let socket = null;
@@ -23,6 +24,11 @@ const sendUserJoined = user => ({
 const recieveBotMessage = (message) => ({
   type: RECIEVE_BOT_MESSAGE,
   message
+});
+
+const newCurrentLocation = (coordinates) => ({
+  type: NEW_CURRENT_LOCATION,
+  coordinates
 });
 
 const handleMessage = (message, dispatch) => {
@@ -60,6 +66,22 @@ const handleMessage = (message, dispatch) => {
       break;
     case 'multipleCitySuggestion':
       if (message.userId !== 'Dave') break; // don't accept broadcasting message 
+      var convertedMsg = {
+        _id: message.messageId,
+        type: message.type,
+        content: message.content,
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'Dave',
+          avatar: 'https://facebook.github.io/react/img/logo_og.png'
+        }
+      }
+      dispatch(recieveBotMessage(convertedMsg));
+      break;
+    case 'cityDetailedInfo':
+      console.log("cityDetailedInfo: ", message)
+      // if (message.userId !== 'Dave') break; // don't accept broadcasting message 
       var convertedMsg = {
         _id: message.messageId,
         type: message.type,
@@ -120,7 +142,7 @@ export const disconnectWatson = () => {
 }
 
 export const sendChatMessage = (messages) => {
-  // console.log("sendChatMessage :", messages);
+  // console.log("sendChatMessage1 :", messages);
   return (dispatch) => {
     messages.map((message) => {
       let convertedMsg = {
@@ -134,5 +156,11 @@ export const sendChatMessage = (messages) => {
         message
       });
     })
+  }
+}
+
+export const sendLocation = (coordinates) => {
+  return (dispatch) => {
+    send(newCurrentLocation(coordinates));
   }
 }

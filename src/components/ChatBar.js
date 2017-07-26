@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Container, Content, Button, Text, Icon } from 'native-base';
-import { connectWatson, disconnectWatson, sendChatMessage } from '../actions';
+import { connectWatson, disconnectWatson, sendChatMessage, sendLocation } from '../actions';
 import CustomView from './CustomView';
 
 class ChatBar extends Component {
@@ -15,6 +15,24 @@ class ChatBar extends Component {
     this.props.connectWatson();
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // fix locations for ios simulator
+          const coordinates = {
+            // latitude: position.coords.latitude,
+            // longitude: position.coords.longitude
+            latitude: 43.6728928,
+            longitude: -79.41108129999999
+          }
+          
+          this.props.sendLocation(coordinates);
+        }
+      );
+    }, 200); 
+  }
+  
   onSend(messages = []) {
     this.props.sendChatMessage(messages);
   }
@@ -46,8 +64,8 @@ class ChatBar extends Component {
 const mpaStateToProps = state => {
   const { user } = state.auth;
   const { messages } = state.chat;
-  // console.log("#########", messages);
+  console.log("#########", messages);
   return { user, messages };
 };
 
-export default connect(mpaStateToProps, { connectWatson, sendChatMessage })(ChatBar);
+export default connect(mpaStateToProps, { connectWatson, sendChatMessage, sendLocation })(ChatBar);
