@@ -6,7 +6,8 @@ import {
 } from '../actions/types'
 
 const INITIAL_STATE = { 
-  messages: []
+  messages: [],
+  isConnected: false
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -14,6 +15,7 @@ export default (state = INITIAL_STATE, action) => {
     case USER_JOINED:
       return {
         ...state,
+        isConnected: true,
         messages: [action.message, ...state.messages]
       }
     case RECIEVE_BOT_MESSAGE:

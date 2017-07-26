@@ -24,7 +24,7 @@ class LoginForm extends Component {
         </Container>
         <Container>
           <Text style={styles.textStyle2}>
-             By SuperTeam
+             # SuperTeam 2017
           </Text>
         </Container>
         <Container style={styles.bottomStyle}>
@@ -61,7 +61,7 @@ const styles = {
   },
   textStyle2: {
     color:'white',
-    fontSize: 30,
+    fontSize: 40,
     fontFamily: 'IndieFlower',
     backgroundColor: "transparent", 
   }

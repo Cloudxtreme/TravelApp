@@ -32,8 +32,7 @@ const newCurrentLocation = (coordinates) => ({
 });
 
 const handleMessage = (message, dispatch) => {
-  console.log("inside handleMessage");
-  // console.log(message);
+  console.log("inside handleMessage : ", message);
   switch(message.type) {
     case 'userJoined':    
       conversationId = message.conversationId;
@@ -80,8 +79,23 @@ const handleMessage = (message, dispatch) => {
       dispatch(recieveBotMessage(convertedMsg));
       break;
     case 'cityDetailedInfo':
-      console.log("cityDetailedInfo: ", message)
-      // if (message.userId !== 'Dave') break; // don't accept broadcasting message 
+      // console.log("cityDetailedInfo: ", message)
+      var convertedMsg = {
+        _id: message.messageId,
+        type: message.type,
+        content: message.content,
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'Dave',
+          avatar: 'https://facebook.github.io/react/img/logo_og.png'
+        }
+      }
+      dispatch(recieveBotMessage(convertedMsg));
+      break;
+    case 'bookTrip':
+      // console.log("bookTrip: ", message)
+      if (!message.content.availabilityEndDate) break;
       var convertedMsg = {
         _id: message.messageId,
         type: message.type,

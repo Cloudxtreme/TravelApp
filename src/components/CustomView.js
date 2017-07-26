@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import MultiCityView from './MultiCityView';
 import CityView from './CityView';
+import BookTrip from './BookTrip';
 
 class CustomView extends Component {
   render() { 
@@ -27,7 +28,13 @@ class CustomView extends Component {
           <View style={{ width: 300 }}>
             <CityView content={currentMessage.content} />
           </View>
-        );               
+        );    
+      case 'bookTrip':
+        return (
+          <View style={{ width: 300 }}>
+            <BookTrip content={currentMessage.content}/>
+          </View>
+      );               
       default:
         return null;
     }
