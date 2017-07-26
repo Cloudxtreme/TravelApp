@@ -11,6 +11,7 @@ import { VictoryBar, VictoryChart, VictoryTheme } from "victory-native";
 import Banner from 'react-native-banner';
 
 class CityDetailView extends Component {
+  
   componentWillMount() {
     const { city_name } = this.props.content;
     Actions.refresh({ title: city_name })
@@ -80,6 +81,20 @@ class CityDetailView extends Component {
       );
     }
   }
+  
+  sendActiviyMessage(keyword) {
+    const message = {
+      createAt: new Date(),
+      text: keyword,
+      _id: uuid(),
+      user: {
+        _id: 1
+      }
+    }
+
+    this.props.sendChatMessage([message]);
+    Actions.chatbar({ type: 'reset' });
+  }
 
   render() {
     const { 
@@ -105,7 +120,7 @@ class CityDetailView extends Component {
                   numberOfLines={3}
                   renderViewMore={this.renderViewMore}
                   renderViewLess={this.renderViewLess}>
-                  <Text>
+                  <Text style={{ fontFamily: 'IndieFlower' }}>
                     { description }
                   </Text>
                 </ViewMoreText>
@@ -118,21 +133,7 @@ class CityDetailView extends Component {
                 keywords.map((keyword, key) => {
                   return (
                     <Button key={key} rounded small style={{marginRight: 5}} 
-                      onPress={()=>{
-                        console.log("cccccccccccccccc1");
-                        const message = {
-                          createAt: new Date(),
-                          text: keyword,
-                          _id: uuid(),
-                          user: {
-                            _id: 1
-                          }
-                        }
-                        console.log("cccccccccccccccc2");
-
-                        this.props.sendChatMessage([message]);
-                        Actions.chatbar({ type: 'reset' });
-                      }}
+                      onPress={()=>{this.sendActiviyMessage(keyword)}}
                     >
                       <Text>{ keyword }</Text>
                     </Button>

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
+import { StyleSheet } from "react-native";
 import { Container, Content, Button, Text, Icon } from 'native-base';
 import FBSDK, { LoginButton, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+import Video from "react-native-video";
+import LightVideo from "./intro.mp4";
 
 class LoginForm extends Component {
 
@@ -13,9 +16,15 @@ class LoginForm extends Component {
   render() {
     return (
       <Container style={styles.containerStyle}>
+        <Video repeat source={LightVideo} resizeMode="cover" style={StyleSheet.absoluteFill} />
         <Container style={styles.topStyle}>
           <Text style={styles.textStyle}>
              TravelBotDave
+          </Text>
+        </Container>
+        <Container>
+          <Text style={styles.textStyle2}>
+             By SuperTeam
           </Text>
         </Container>
         <Container style={styles.bottomStyle}>
@@ -47,7 +56,14 @@ const styles = {
   textStyle: {
     color:'white',
     fontSize: 50,
-    fontFamily: 'vincHand' 
+    fontFamily: 'IndieFlower',
+    backgroundColor: "transparent", 
+  },
+  textStyle2: {
+    color:'white',
+    fontSize: 30,
+    fontFamily: 'IndieFlower',
+    backgroundColor: "transparent", 
   }
 };
 
