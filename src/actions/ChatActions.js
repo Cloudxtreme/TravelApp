@@ -5,7 +5,8 @@ import {
   SEND_USER_JOINED,
   RECIEVE_BOT_MESSAGE,
   SEND_CHAT_MESSAGE,
-  NEW_CURRENT_LOCATION
+  NEW_CURRENT_LOCATION,
+  USER_TYPING
 } from './types'
 
 let socket = null;
@@ -109,6 +110,9 @@ const handleMessage = (message, dispatch) => {
       }
       dispatch(recieveBotMessage(convertedMsg));
       break;
+    case 'userTyping':
+      dispatch({type: USER_TYPING});
+      break;
     default:
       break;
   }
@@ -131,6 +135,7 @@ const onMessage = dispatch => evt => {
 }
 
 const send = msg => {
+  console.log("send() : ", msg);
   socket.send(JSON.stringify(msg));
 }
 

@@ -151,10 +151,11 @@ class CityDetailView extends Component {
           </Card>
           <Card>
             <CardItem>
+              <Body>
               {
-                keywords.map((keyword, key) => {
+                keywords.map((keyword, key) => {                  
                   return (
-                    <Button key={key} rounded small style={{marginRight: 5}} 
+                    <Button key={key} bordered block small style={{margin: 5}} 
                       onPress={()=>{this.sendActiviyMessage(keyword)}}
                     >
                       <Text>{ keyword }</Text>
@@ -162,6 +163,7 @@ class CityDetailView extends Component {
                   );
                 })
               }
+              </Body>
             </CardItem>
           </Card>
           <Card>
