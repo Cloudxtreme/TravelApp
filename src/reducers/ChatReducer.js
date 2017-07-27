@@ -11,12 +11,12 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log("action : ", action)
   switch (action.type) {
     case USER_JOINED:
       return {
         ...state,
-        isConnected: true,
-        messages: [action.message, ...state.messages]
+        isConnected: true
       }
     case RECIEVE_BOT_MESSAGE:
       return {

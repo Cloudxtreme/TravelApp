@@ -10,7 +10,6 @@ import BookTrip from './BookTrip';
 class CustomView extends Component {
   render() { 
     const { currentMessage } = this.props;
-    console.log("messagepropsprops : ", this.props);
     switch(currentMessage.type) {
       case 'multipleCitySuggestion':
         return (

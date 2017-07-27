@@ -32,7 +32,7 @@ const newCurrentLocation = (coordinates) => ({
 });
 
 const handleMessage = (message, dispatch) => {
-  console.log("inside handleMessage : ", message);
+  //console.log("inside handleMessage : ", message);
   switch(message.type) {
     case 'userJoined':    
       conversationId = message.conversationId;
@@ -110,7 +110,7 @@ const handleMessage = (message, dispatch) => {
       dispatch(recieveBotMessage(convertedMsg));
       break;
     default:
-      return;
+      break;
   }
 };
 
@@ -126,6 +126,7 @@ const onClose = dispatch => evt => {
 
 const onMessage = dispatch => evt => {
   let msg = JSON.parse(evt.data);
+  console.log("onMessage : ", msg);
   handleMessage(msg, dispatch);
 }
 

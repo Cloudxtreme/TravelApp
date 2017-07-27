@@ -64,7 +64,7 @@ class ChatBar extends Component {
 const mpaStateToProps = state => {
   const { user } = state.auth;
   const { messages, isConnected } = state.chat;
-  // console.log("#########", messages);
+  console.log("#########", messages);
   return { user, messages, isConnected };
 };
 

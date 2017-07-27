@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { View, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base';
 import { sendChatMessage } from '../actions';
 import ViewMoreText from 'react-native-view-more-text';
@@ -130,8 +130,8 @@ class CityDetailView extends Component {
     } = this.props.content;
 
     return (
-      <View style={{marginTop: 65, padding: 5}}>
-        <ScrollView>
+      <Container style={{marginTop: 65, padding: 5}}>
+        <Content>
           <Card style={{flex: 0}}>
             <CardItem cardBody style={{padding: 10, marginTop: 10}}>
               <Image source={{uri: image_url}} style={{height: 200, width: null, flex: 1}}/>
@@ -189,16 +189,12 @@ class CityDetailView extends Component {
             { this.renderSwiper(landmarks) }
           </Card>
           <Card>
-            <CardItem>
-            <Body>
-              <Button full warning onPress={() =>{ this.sendBookTripMessage() }}>
-                <Text>Book Trip</Text>
-              </Button>
-            </Body>
-            </CardItem>
+            <Button full warning onPress={() =>{ this.sendBookTripMessage() }}>
+              <Text>Book Trip</Text>
+            </Button>
           </Card>
-        </ScrollView>
-      </View>
+        </Content>
+      </Container>
     );
   }
 }
