@@ -103,11 +103,11 @@ class CityDetailView extends Component {
     Actions.chatbar({ type: 'reset' });
   }
 
-  sendBookTripMessage() {
+  sendBookTripMessage(city_name) {
     console.log("123412412412341241")
     const message = {
       createAt: new Date(),
-      text: 'BookTrip',
+      text: 'Book me a trip to ' + city_name,
       _id: uuid(),
       user: {
         _id: 1
@@ -191,7 +191,7 @@ class CityDetailView extends Component {
             { this.renderSwiper(landmarks) }
           </Card>
           <Card>
-            <Button full warning onPress={() =>{ this.sendBookTripMessage() }}>
+            <Button full warning onPress={() =>{ this.sendBookTripMessage(city_name) }}>
               <Text>Book Trip</Text>
             </Button>
           </Card>
