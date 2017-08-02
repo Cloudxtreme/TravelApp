@@ -79,9 +79,9 @@ class CityDetailView extends Component {
             labels={(d) => d.y}
             categories={{ x: ["low", "median", "high"] }}
             data={[
-              { x: "low", y: flightPrices.minimumFare || 1388.36},
-              { x: "median", y: flightPrices.medianFare || 1501.33},
-              { x: "high", y: flightPrices.maximumFare || 2114.83}
+              { x: "low", y: Math.round(flightPrices.minimumFare) || 1388.36},
+              { x: "median", y: Math.round(flightPrices.medianFare) || 1501.33},
+              { x: "high", y: Math.round(flightPrices.maximumFare) || 2114.83}
             ]}
           />
         </VictoryChart>
@@ -142,7 +142,7 @@ class CityDetailView extends Component {
                   numberOfLines={3}
                   renderViewMore={this.renderViewMore}
                   renderViewLess={this.renderViewLess}>
-                  <Text style={{ fontFamily: 'IndieFlower' }}>
+                  <Text>
                     { description }
                   </Text>
                 </ViewMoreText>
