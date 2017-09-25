@@ -1,6 +1,6 @@
 # TravelBotDave mobile app
 
-TravelBotDave is a chatbot that recommend travel destionation using only our chat. Our chatbot is built using Watson api and machine learning. This mobile version is developed using React Native.
+TravelBotDave is a chatbot that recommend travel destionations using chat. Our chatbot is built using Watson api and machine learning. This mobile version is developed using React Native.
 
 ## Screenshots
 
